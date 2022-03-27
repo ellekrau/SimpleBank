@@ -1,4 +1,9 @@
-# Migration
+# Course
+Backend Master Class [Golang + PostgreSQL + Kubernetes]
+
+https://www.udemy.com/course/backend-master-class-golang-postgresql-kubernetes/
+
+## Migrations
 ### Install package
 `go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest`
 
