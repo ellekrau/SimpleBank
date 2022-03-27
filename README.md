@@ -4,14 +4,21 @@ Backend Master Class [Golang + PostgreSQL + Kubernetes]
 https://www.udemy.com/course/backend-master-class-golang-postgresql-kubernetes/
 
 ## Migrations
-### Install package
-`go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest`
+Install  
+ `go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest`
 
-### Create first migration
+Create first migration  
 `migrate create -ext sql -dir src\database\migrations -seq init_schema`
 
-### Up
+Up  
 `migrate -path src/database/migrations --database "postgresql://admin:P@ssw0rd@localhost:5432/simple_bank?sslmode=disable" --verbose up`
 
-### Down
+Down  
 `migrate -path src/database/migrations --database "postgresql://admin:P@ssw0rd@localhost:5432/simple_bank?sslmode=disable" --verbose down`
+
+## Sqlc
+Install  
+`go install github.com/kyleconroy/sqlc/cmd/sqlc@latest`
+
+Postgres documentation  
+https://docs.sqlc.dev/en/latest/tutorials/getting-started-postgresql.html
