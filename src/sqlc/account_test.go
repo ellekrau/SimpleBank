@@ -2,16 +2,16 @@ package db
 
 import (
 	"context"
-	"github.com/ellekrau/SimpleBank/utils/enum/currency"
+	"github.com/ellekrau/SimpleBank/utils/random"
 	test "github.com/stretchr/testify/require"
 	"testing"
 )
 
 func TestCreateAccount(t *testing.T) {
 	args := CreateAccountParams{
-		Owner:    "Jaine",
-		Balance:  1000,
-		Currency: currency.Real,
+		Owner:    random.Owner(),
+		Balance:  random.Amount(),
+		Currency: random.Currency(),
 	}
 
 	account, err := testQueries.CreateAccount(context.Background(), args)
