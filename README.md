@@ -25,6 +25,6 @@ https://docs.sqlc.dev/en/latest/tutorials/getting-started-postgresql.html
 
 To run in windows using WSL:
 - Download the binarie: https://github.com/kyleconroy/sqlc/releases/download/v1.12.0/sqlc_1.12.0_linux_amd64.tar.gz
-- Execute using WLS with this binarie as executable  
+- Execute using WLS with this binary as executable  
 
 `root@LAPTOP-PFVT9C7K:/mnt/c/Git/sqlc_1.12.0_linux_amd64# ./sqlc generate -f "../study/simple-bank/sqlc.yaml"`
