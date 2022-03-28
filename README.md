@@ -3,6 +3,12 @@ Backend Master Class [Golang + PostgreSQL + Kubernetes]
 
 https://www.udemy.com/course/backend-master-class-golang-postgresql-kubernetes/
 
+## .env
+Create an .env file and set DB configuration  
+`DB_NAME= `  
+`DB_PASSWORD= `  
+`DB_USER= `
+
 ## Migrations
 Install  
  `go install -tags 'postgres' github.com/golang-migrate/migrate/v4/cmd/migrate@latest`
