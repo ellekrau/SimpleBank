@@ -34,3 +34,7 @@ To run in windows using WSL:
 - Execute using WLS with this binary as executable  
 
 `root@LAPTOP-PFVT9C7K:/mnt/c/Git/sqlc_1.12.0_linux_amd64# ./sqlc generate -f "../study/simple-bank/sqlc.yaml"`
+
+## External packages
+- https://github.com/lib/pq
+- https://github.com/stretchr/testify
