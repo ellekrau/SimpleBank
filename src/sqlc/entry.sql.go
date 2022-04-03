@@ -92,7 +92,7 @@ func (q *Queries) ListEntries(ctx context.Context, arg ListEntriesParams) ([]Ent
 }
 
 const updateEntry = `-- name: UpdateEntry :one
-UPDATE entries SET account_id = $1 and amount = $2 where id = $3 RETURNING id, account_id, amount, created_at
+UPDATE entries SET account_id = $1, amount = $2 where id = $3 RETURNING id, account_id, amount, created_at
 `
 
 type UpdateEntryParams struct {

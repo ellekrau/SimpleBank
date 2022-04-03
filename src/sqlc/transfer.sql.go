@@ -96,7 +96,7 @@ func (q *Queries) ListTransfers(ctx context.Context, arg ListTransfersParams) ([
 }
 
 const updateTransfer = `-- name: UpdateTransfer :one
-UPDATE transfers SET from_account_id = $1 and to_account_id = $2 and amount = $3  where id = $4 RETURNING id, from_account_id, to_account_id, amount, created_at
+UPDATE transfers SET from_account_id = $1, to_account_id = $2, amount = $3  where id = $4 RETURNING id, from_account_id, to_account_id, amount, created_at
 `
 
 type UpdateTransferParams struct {
