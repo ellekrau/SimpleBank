@@ -9,8 +9,6 @@ import (
 	"time"
 )
 
-var ctx = context.Background()
-
 func createRandomAccount(t *testing.T) Accounts {
 	args := CreateAccountParams{
 		Owner:    random.Owner(),
@@ -43,21 +41,16 @@ func TestGetAccount(t *testing.T) {
 	require.NoError(t, err)
 	require.NotEmpty(t, resultAccount)
 
-	require.Equal(t, dbAccount.ID, resultAccount.ID)
-	require.Equal(t, dbAccount.Balance, resultAccount.Balance)
-	require.Equal(t, dbAccount.Owner, resultAccount.Owner)
-	require.Equal(t, dbAccount.Currency, resultAccount.Currency)
-	require.WithinDuration(t, dbAccount.CreatedAt, resultAccount.CreatedAt, time.Second)
+	require.Equal(t, dbAccount, resultAccount)
 }
 
 func TestUpdateAccount(t *testing.T) {
 	dbAccount := createRandomAccount(t)
-	updateAccount := UpdateAccountParams{
+	updateAccountParams := UpdateAccountParams{
 		Balance: random.Amount(),
 		ID:      dbAccount.ID,
 	}
-
-	resultAccount, err := db.UpdateAccount(ctx, updateAccount)
+	resultAccount, err := db.UpdateAccount(ctx, updateAccountParams)
 
 	require.NoError(t, err)
 	require.NotEmpty(t, resultAccount)
@@ -67,7 +60,7 @@ func TestUpdateAccount(t *testing.T) {
 	require.Equal(t, dbAccount.Currency, resultAccount.Currency)
 	require.WithinDuration(t, dbAccount.CreatedAt, resultAccount.CreatedAt, time.Second)
 
-	require.Equal(t, updateAccount.Balance, resultAccount.Balance)
+	require.Equal(t, updateAccountParams.Balance, resultAccount.Balance)
 }
 
 func TestDeleteAccount(t *testing.T) {
@@ -92,7 +85,6 @@ func TestListAccounts(t *testing.T) {
 		Limit:  5,
 		Offset: 5,
 	}
-
 	resultAccounts, err := db.ListAccounts(ctx, listAccountsParams)
 
 	require.NoError(t, err)
