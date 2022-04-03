@@ -5,9 +5,11 @@ https://www.udemy.com/course/backend-master-class-golang-postgresql-kubernetes/
 
 ## .env
 Create an .env file and set DB configuration  
-`DB_NAME= `  
-`DB_PASSWORD= `  
-`DB_USER= `
+```
+DB_NAME= 
+DB_PASSWORD= 
+DB_USER=
+```
 
 ## Migrations
 Install  
