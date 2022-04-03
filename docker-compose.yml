@@ -12,6 +12,3 @@ services:
     image: adminer
     ports:
       - "8888:8080"
-
-  sqlc:
-    image: sql
