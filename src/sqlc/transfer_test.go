@@ -25,18 +25,18 @@ func createRandomTransfer(t *testing.T) Transfers {
 		ToAccountID:   toAccountID,
 		Amount:        amount,
 	}
-	transfer, err := db.CreateTransfer(ctx, createTransferParams)
+	resultTransfer, err := db.CreateTransfer(ctx, createTransferParams)
 
 	require.NoError(t, err)
-	require.NotEmpty(t, transfer)
+	require.NotEmpty(t, resultTransfer)
 
-	require.NotZero(t, transfer.ID)
-	require.Equal(t, fromAccountID, transfer.FromAccountID)
-	require.Equal(t, toAccountID, transfer.ToAccountID)
-	require.Equal(t, amount, transfer.Amount)
-	require.NotZero(t, transfer.CreatedAt)
+	require.NotZero(t, resultTransfer.ID)
+	require.Equal(t, fromAccountID, resultTransfer.FromAccountID)
+	require.Equal(t, toAccountID, resultTransfer.ToAccountID)
+	require.Equal(t, amount, resultTransfer.Amount)
+	require.NotZero(t, resultTransfer.CreatedAt)
 
-	return transfer
+	return resultTransfer
 }
 
 func TestCreateTransfer(t *testing.T) {
